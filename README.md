@@ -74,3 +74,11 @@ hadoop fs -ls /hadoop-user
 ```
 hadoop fs -cp /hadoop-user/trees.csv /hadoop-user2
 ```
+
+## URL to view data in UI:
+
+Name Node - <your_app_url>.ineuron.app:9870
+
+Data Node - <your_app_url>.ineuron.app:9864
+
+Hadoop Clutser - <your_app_url>.ineuron.app:8088/cluster
