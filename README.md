@@ -8,7 +8,6 @@ HDFS is the primary or major component of the Hadoop ecosystem which is responsi
 
 ```
 jps
-
 ```
 
 ### General Shell Commands
