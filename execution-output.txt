@@ -1,0 +1,150 @@
+abc@bd99e44a31b3:~/workspace$ hadoop version
+Hadoop 3.2.1
+Source code repository https://gitbox.apache.org/repos/asf/hadoop.git -r b3cbbb467e22ea829b3808f4b7b01d07e0bf3842
+Compiled by rohithsharmaks on 2019-09-10T15:56Z
+Compiled with protoc 2.5.0
+From source with checksum 776eaf9eee9c0ffc370bcbc1888737
+This command was run using /usr/local/hadoop-3.2.1/share/hadoop/common/hadoop-common-3.2.1.jar
+
+abc@bd99e44a31b3:~/workspace$ ls
+hadoop.txt  README.md  trees.csv
+
+abc@bd99e44a31b3:~/workspace$ mkdir fsds-nov
+
+abc@bd99e44a31b3:~/workspace$ cd fsds-nov
+
+abc@bd99e44a31b3:~/workspace/fsds-nov$ ls
+data.txt
+
+abc@bd99e44a31b3:~/workspace/fsds-nov$ cat data.txt
+sadsgsghsgjdshhd
+shsgdgchdn
+
+abc@bd99e44a31b3:~/workspace/fsds-nov$ cd ..
+
+abc@bd99e44a31b3:~/workspace$ hdfs dfs -ls /
+
+abc@bd99e44a31b3:~/workspace$ hdfs dfs -mkdir /test
+
+abc@bd99e44a31b3:~/workspace$ hdfs dfs -ls /
+Found 1 items
+
+abc@bd99e44a31b3:~/workspace$ hdfs dfs -put /config/workspace/fsds-nov/data.txt /test
+2022-12-17 12:07:33,742 INFO sasl.SaslDataTransferClient: SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+
+abc@bd99e44a31b3:~/workspace$ hdfs dfs -ls /test
+Found 1 items
+-rw-r--r--   1 abc supergroup         63 2022-12-17 12:07 /test/data.txt
+
+abc@bd99e44a31b3:~/workspace$ hdfs dfs -cat /test/data.txt
+2022-12-17 12:08:50,728 INFO sasl.SaslDataTransferClient: SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+sadsgsghsgjdshhd
+shsgdgchdn
+
+abc@bd99e44a31b3:~/workspace$ hdfs dfs -copyFromLocal /config/workspace/trees.csv /
+2022-12-17 12:14:04,363 INFO sasl.SaslDataTransferClient: SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+
+abc@bd99e44a31b3:~/workspace$ hdfs dfs -cat /trees.csv
+2022-12-17 12:14:32,528 INFO sasl.SaslDataTransferClient: SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+"Index", "Girth (in)", "Height (ft)", "Volume(ft^3)"
+ 1,   8.3,     70,   10.3
+ 2,   8.6,     65,   10.3
+ 3,   8.8,     63,   10.2
+ 4,  10.5,     72,   16.4
+ 5,  10.7,     81,   18.8
+ 6,  10.8,     83,   19.7
+ 7,  11.0,     66,   15.6
+ 8,  11.0,     75,   18.2
+ 9,  11.1,     80,   22.6
+10,  11.2,     75,   19.9
+11,  11.3,     79,   24.2
+12,  11.4,     76,   21.0
+13,  11.4,     76,   21.4
+14,  11.7,     69,   21.3
+15,  12.0,     75,   19.1
+16,  12.9,     74,   22.2
+17,  12.9,     85,   33.8
+18,  13.3,     86,   27.4
+19,  13.7,     71,   25.7
+20,  13.8,     64,   24.9
+21,  14.0,     78,   34.5
+22,  14.2,     80,   31.7
+23,  14.5,     74,   36.3
+24,  16.0,     72,   38.3
+25,  16.3,     77,   42.6
+26,  17.3,     81,   55.4
+27,  17.5,     82,   55.7
+28,  17.9,     80,   58.3
+29,  18.0,     80,   51.5
+30,  18.0,     80,   51.0
+31,  20.6,     87,   77.0
+
+abc@bd99e44a31b3:~/workspace$ hdfs dfs -get /test /config/workspace/fsds-nov
+2022-12-17 12:32:25,651 INFO sasl.SaslDataTransferClient: SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+
+abc@bd99e44a31b3:~/workspace$ hdfs dfs -rm /test/data.txt
+Deleted /test/data.txt
+
+abc@bd99e44a31b3:~/workspace$ hdfs dfs -ls /test
+
+abc@bd99e44a31b3:~/workspace$ hdfs dfs -rm /trees.csv
+Deleted /trees.csv
+
+abc@bd99e44a31b3:~/workspace$ hdfs dfs -rm -r /test
+Deleted /test
+
+abc@bd99e44a31b3:~/workspace$ hdfs dfs -mkdir /trial
+
+abc@bd99e44a31b3:~/workspace$ hdfs dfs -put /config/workspace/execution-output.txt /trial
+2022-12-17 12:44:06,767 INFO sasl.SaslDataTransferClient: SASL encryption trust check: localHostTrusted = false, remoteHostTrusted = false
+
+abc@bd99e44a31b3:~/workspace$ hdfs dfs -ls /
+Found 2 items
+drwxr-xr-x   - abc supergroup          0 2022-12-17 12:42 /conf
+drwxr-xr-x   - abc supergroup          0 2022-12-17 12:44 /trial
+
+abc@bd99e44a31b3:~/workspace$ hdfs dfs -ls /trial
+/trial/execution-output.txt
+
+abc@bd99e44a31b3:~/workspace$ hdfs dfs -du -s /trial/execution-output.txt
+3250  3250  /trial/execution-output.txt
+
+abc@bd99e44a31b3:~/workspace$ hdfs dfs -du -s /trial/execution-output.txt
+3250  3250  /trial/execution-output.txt
+
+abc@bd99e44a31b3:~/workspace$ touch hadoop-commands.txt
+
+abc@bd99e44a31b3:~/workspace$ hdfs dfs -touch /hadoop-commands.txt
+
+abc@bd99e44a31b3:~/workspace$ hdfs dfs -ls /
+Found 3 items
+drwxr-xr-x   - abc supergroup          0 2022-12-17 12:42 /conf
+-rw-r--r--   1 abc supergroup          0 2022-12-17 12:56 /hadoop-commands.txt
+drwxr-xr-x   - abc supergroup          0 2022-12-17 12:44 /trial
+
+abc@bd99e44a31b3:~/workspace$ hdfs dfs -help
+
+abc@bd99e44a31b3:~/workspace$ hdfs dfs -ls /
+Found 3 items
+drwxr-xr-x   - abc supergroup          0 2022-12-17 12:42 /conf
+-rw-r--r--   1 abc supergroup          0 2022-12-17 12:56 /hadoop-commands.txt
+drwxr-xr-x   - abc supergroup          0 2022-12-17 12:44 /trial
+
+abc@bd99e44a31b3:~/workspace$ hdfs dfs -cp /hadoop-commands.txt /trial
+
+abc@bd99e44a31b3:~/workspace$ hdfs dfs -ls /
+Found 3 items
+drwxr-xr-x   - abc supergroup          0 2022-12-17 12:42 /conf
+-rw-r--r--   1 abc supergroup          0 2022-12-17 12:56 /hadoop-commands.txt
+drwxr-xr-x   - abc supergroup          0 2022-12-17 13:00 /trial
+
+abc@bd99e44a31b3:~/workspace$ hdfs dfs -ls /trial
+Found 2 items
+-rw-r--r--   1 abc supergroup       3250 2022-12-17 12:44 /trial/execution-output.txt
+-rw-r--r--   1 abc supergroup          0 2022-12-17 13:00 /trial/hadoop-commands.txt
+
+abc@bd99e44a31b3:~/workspace$ hdfs dfs -count /
+           3            3               3250 /
+           
+abc@bd99e44a31b3:~/workspace$ hdfs dfs -count /trial
+           1            2               3250 /trial

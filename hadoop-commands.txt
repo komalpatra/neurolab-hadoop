@@ -1,0 +1,71 @@
+write the data
+
+1. create a folder in hdfs
+
+hdfs dfs -mkdir /name/<path-of-dir>
+
+2. copy data from local to hdfs
+
+hdfs dfs -put <local-dir-path> <hdfs-path>
+
+hdfs dfs -copyFromLocal <local-dir-path> <hdfs-path>
+
+3. if you want to see the data
+
+hdfs dfs -cat <file-path>
+
+4. if i want to count the file in hdfs
+
+Hdfs dfs -count <file_dir>
+
+
+accessing the nano editor
+nano <file_name>
+insert
+<file-name>
+ctrl+o
+enter
+ctrl+x
+
+
+5.  Getting a file from the directory or getting a file from hdfs to local
+
+ Hdfs dfs -get <dir_name>
+
+6. For remove the file from the directory use
+
+Hdfs dfs -rm <file or dir name>
+
+7. Remove the entire directory
+
+
+Hdfs dfs -rmr <dir_path> #deprecated in latest version
+
+Hdfs dfs -rm -r <dir_path>
+
+8. Checking for file size
+
+Hdfs dfs -du -s <file_path>
+
+9. For checking all the commands and description write
+
+Hdfs dfs -help
+
+10. Copy something with in hdfs to hdfs so use -cp
+
+Hdfs dfs -cp <hdfs_dir1> <hdfs_dir2>
+11. Move from one directory to another directory with in hdfs
+
+Hdfs dfs -mv <hdfs_dir1> <hdfs_dir2>
+
+12. Create a file in hdfs
+
+Hdfs dfs -touchz <file_name>
+
+
+
+URL TO CHECK THE DATA IN UI :
+
+gray-actor-oxwzs.ineuron.app:9870
+gray-actor-oxwzs.ineuron.app:9864
+gray-actor-oxwzs.ineuron.app:8088/cluster
